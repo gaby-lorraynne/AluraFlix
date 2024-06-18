@@ -1,0 +1,36 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 6.25rem;
+    background-color: var(--DarkGrey);
+    padding: 0 50px;
+    border-bottom: 4px solid var(--BlueBorder);
+}
+
+.nav .list {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.nav .list .link {
+    border: 2px solid var(--WhiteSmoke);
+    border-radius: 10px;
+    width: 150px;
+    height: 50px;
+    font-family: var(--Font-Sans);
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--WhiteSmoke);
+}
+
+.nav .list .link:active {
+    border: 2px solid var(--BlueBorder);
+    color: var(--BlueBorder);
+    box-shadow: inset 0px 0px 10px var(--BlueBorder);
+}
