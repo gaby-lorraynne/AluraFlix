@@ -1,4 +1,4 @@
-import NovoVideo from "../../Componentes/Body";
+import NovoVideo from "../../Componentes/BodyCadastro";
 
 const CriarVideo =  () => {
     return(

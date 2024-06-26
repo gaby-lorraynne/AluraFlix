@@ -1,12 +1,14 @@
+import Form from '../Form';
 import MainTitle from '../MainTitle';
 import styles from './Body.module.css';
 
-const Body = () => {
+const BodyCadastro = () => {
     return(
         <div className={styles.content}>
             <MainTitle/>
+            <Form/>
         </div>
     )
 }
 
-export default Body;
+export default BodyCadastro;

@@ -1,0 +1,22 @@
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    max-width: 80%;
+    width: 100%;
+    margin: 0 auto 50px auto;
+    font-family: var(--Font-Sans);
+    color: var(--WhiteSmoke);
+    border: 1px solid red;
+}
+
+.title {
+    width: 100%;
+    font-weight: 600;
+    font-size: 36px;
+    padding: 10px 0;
+    border-radius: 2px;
+    border-bottom: 3px solid white;
+    border-top: 3px solid white;
+}
+
