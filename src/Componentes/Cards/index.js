@@ -3,33 +3,26 @@ import { MdDeleteForever } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 
 
-const Cards = (props) => {
+const Cards = ({opcoes, aoDeletar}) => {
     return(
         <div className={styles.content}>
-            <div className={styles.card}>
-                <div className={styles.videos__Card}>
-                    <iframe 
-                        className={styles.video}
-                        src={props.url}
-                        title="YouTube video player" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowFullScreen
-                    >
-                    </iframe>
-                </div>
-                <div className={styles.botoes}>
-                    <div className={styles.botao}>
-                        <MdDeleteForever 
-                            size={40} 
-                        />
-                        <span  onClick={() => props.aoDeletar(props.id)} >Deletar</span>
+            {opcoes.map((opcao) => (
+                <div className={styles.card} key={opcao.id}>
+                    <div className={styles.videos__Card}>
+                        <img src={opcao.imagem} alt={opcao.titulo} />
                     </div>
-                    <div className={styles.botao}>
-                        <CiEdit size={40} />
-                        <span>Editar</span>
-                    </div>   
+                    <div className={styles.botoes}>
+                        <div className={styles.botao} onClick={() => aoDeletar(opcao.id)}>
+                            <MdDeleteForever size={40} />
+                            <span>Deletar</span>
+                        </div>
+                        <div className={styles.botao}>
+                            <CiEdit size={40} />
+                            <span>Editar</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            ))}
         </div>
     )
 }

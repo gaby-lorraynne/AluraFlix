@@ -13,6 +13,7 @@ const Form = ({aoVideoCadastrado}) => {
     const [descricao, setDescricao] = useState('');
     const [categorias, setCategorias] = useState([]);
     
+    
     // Consumindo a api para as categorias
     useEffect(() => {
         fetch("http://localhost:5000/categorias", {
@@ -27,8 +28,8 @@ const Form = ({aoVideoCadastrado}) => {
         })
         .catch((err) => console.log(err))
     }, [])
-   
 
+    
     const aoSalvar = (evento) => {
         evento.preventDefault();
         aoVideoCadastrado({

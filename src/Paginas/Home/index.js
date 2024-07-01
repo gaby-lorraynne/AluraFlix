@@ -1,59 +1,68 @@
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Banner from "../../Componentes/BannerMain";
 import Cards from "../../Componentes/Cards";
-import { v4 as uuidv4 } from 'uuid';
+import Form from '../../Componentes/Form';
 
-const Home =  () => {
 
-    const [categorias, setCategorias] = useState([
-        {
-            id: uuidv4(),
-            nome: 'FRONT END'
-        },
-        {
-            id: uuidv4(),
-            nome: 'BACK END'
-        },
-        {
-            id: uuidv4(),
-            nome: 'MOBILE'
-        }
-    ])
+const Home = () => {
+    const [categorias, setCategorias] = useState([]);
+    const [videos, setVideos] = useState([]);
 
-    const [videos, setVideos] = useState([
-        {
-            id: uuidv4(),
-            categoriaId: categorias[0].id,
-            url: 'https://www.youtube.com/embed/c8mVlakBESE?si=z6KPg-Iy-DL7u94F' 
-        }
-    ])
+    // Consumindo a api de categorias
+    useEffect(() => {
+        fetch("http://localhost:5000/categorias", {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then((resp) => resp.json())
+        .then((dados) => {
+            setCategorias(dados);
+        })
+        .catch((err) => console.log(err));
+    }, []);
 
-    // Deletar Video
-    const DeletarVideo = (id) =>{
+    // Consumindo a api de videos
+    useEffect(() => {
+        fetch("http://localhost:5000/videos", {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then((resp) => resp.json())
+        .then((dados) => {
+            setVideos(dados);
+        })
+        .catch((err) => console.log(err));
+    }, []);
+
+    // Cadastrando video
+    const aoVideoCadastrado = (novoVideo) => {
+        setVideos([...videos, novoVideo]);
+    };
+
+    // Deletando videos
+    const DeletarVideo = (id) => {
         setVideos(videos.filter(video => video.id !== id));
-        console.log("Foi clicado")
-    }
+        console.log("Foi clicado");
+    };
 
-    return(
+    return (
         <>
-            <Banner/>
+            <Banner />
             {categorias.map(categoria => (
                 <div key={categoria.id}>
                     <h2>{categoria.nome}</h2>
-                    {videos.filter(video => video.categoriaId === categoria.id).map(video => (
-                        <Cards
-                            key={video.id}
-                            id={video.id}
-                            categoriaId={categoria.id}
-                            imagem={video.imagem}
-                            url={video.url}
-                            aoDeletar={DeletarVideo}
-                        />
-                    ))}
+                    <Cards
+                        opcoes={videos.filter(video => video.categoriaId === categoria.id)}
+                        aoDeletar={DeletarVideo}
+                    />
                 </div>
             ))}
         </>
-    )
+    );
 }
 
 export default Home;
