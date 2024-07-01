@@ -1,0 +1,12 @@
+.botao{
+    background-color: transparent;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 20px;
+    border: 2px solid var(--WhiteSmoke);
+    cursor: pointer;
+    color: #FFF;
+    margin: 32px 0;
+    height: 60px;
+}

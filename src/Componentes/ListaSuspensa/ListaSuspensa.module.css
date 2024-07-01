@@ -1,0 +1,22 @@
+.listaSuspensa {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.listaSuspensa select{
+    background-color: transparent;
+    width: 100%;
+    height:60px;
+    padding-left: 10px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.08);
+    border: 2px solid var(--WhiteSmoke);
+    border-radius: 10px;
+    font-size: 20px;
+    box-sizing: border-box;
+    color: var(--WhiteSmoke);
+}
+
+select option {
+    color: black;
+}
