@@ -1,5 +1,6 @@
 import {  useEffect, useState } from 'react';
 import FormInputs from '../FormInputs';
+import TextArea from '../TextArea';
 import ListaSuspensa from '../ListaSuspensa';
 import styles from './Form.module.css';
 import { v4 as uuidv4 } from 'uuid';
@@ -84,7 +85,7 @@ const Form = ({aoVideoCadastrado}) => {
                     onChange={(e) => setVideo(e.target.value)} 
                     required
                 />
-                <FormInputs
+                <TextArea
                     titulo={'Descrição'} 
                     placeholder={'Sobre o que é esse vídeo?'}
                     value={descricao} 
