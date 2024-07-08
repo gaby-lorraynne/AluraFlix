@@ -1,5 +1,4 @@
 .content {
-    background-color: var(--DarkGrey);
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
@@ -16,7 +15,9 @@
     background-color: var(--Black);
     width: 500px;
     border-radius: 20px;
+    overflow: hidden;
 }
+
 
 .videos__Card {
     width: 100%;

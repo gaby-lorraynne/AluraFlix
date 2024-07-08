@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import Banner from "../../Componentes/BannerMain";
 import Cards from "../../Componentes/Cards";
-import Form from '../../Componentes/Form';
-
+import BtnCategoria from "../../Componentes/BtnCategoria";
+import styles from './Home.module.css';
 
 const Home = () => {
-    const [categorias, setCategorias] = useState([]);
     const [videos, setVideos] = useState([]);
+    const [categorias, setCategorias] = useState([]);
 
-    // Consumindo a api de categorias
+    const coresCategoria = {
+        'FRONT END': '#6BD1FF',
+        'BACK END': '#00C86F',
+        'MOBILE': '#FFBA05',
+    };
+
     useEffect(() => {
         fetch("http://localhost:5000/categorias", {
             method: "GET",
@@ -23,7 +28,6 @@ const Home = () => {
         .catch((err) => console.log(err));
     }, []);
 
-    // Consumindo a api de videos
     useEffect(() => {
         fetch("http://localhost:5000/videos", {
             method: "GET",
@@ -38,12 +42,6 @@ const Home = () => {
         .catch((err) => console.log(err));
     }, []);
 
-    // Cadastrando video
-    const aoVideoCadastrado = (novoVideo) => {
-        setVideos([...videos, novoVideo]);
-    };
-
-    // Deletando videos
     const DeletarVideo = (id) => {
         setVideos(videos.filter(video => video.id !== id));
         console.log("Foi clicado");
@@ -53,12 +51,14 @@ const Home = () => {
         <>
             <Banner />
             {categorias.map(categoria => (
-                <div key={categoria.id}>
-                    <h2>{categoria.nome}</h2>
-                    <Cards
-                        opcoes={videos.filter(video => video.categoriaId === categoria.id)}
-                        aoDeletar={DeletarVideo}
-                    />
+                <div key={categoria.id} className={styles.categoriaSection}>
+                    <BtnCategoria nome={categoria.categoria} cor={coresCategoria[categoria.categoria]}/>
+                    <div className={styles.cardsContainer}>
+                        <Cards
+                            opcoes={videos.filter(video => video.categoriaId === categoria.id)}
+                            aoDeletar={DeletarVideo}
+                        />
+                    </div>
                 </div>
             ))}
         </>

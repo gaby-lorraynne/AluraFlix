@@ -1,0 +1,13 @@
+
+.categoriaBotao {
+    border-radius: 10px;
+    border: none;
+    font-size: 32px;
+    font-family: var(--Font-Roboto);
+    font-weight: 800;
+    margin: 20px 50px;
+    color: white;
+    width: 432px;
+    height: 70px;
+
+}
