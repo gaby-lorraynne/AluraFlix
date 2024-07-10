@@ -7,7 +7,6 @@ const VideoProvider = ({ children }) => {
     const [videos, setVideos] = useState([]);
 
     const aoVideoCadastrado = (novoVideo) => {
-        // axios.post('http://localhost:5000/videos', novoVideo)
         axios.post('http://localhost:5000/videos', {
             "titulo": novoVideo.titulo,
             "categoriaId": novoVideo.categoriaId,

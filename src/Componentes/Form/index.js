@@ -6,7 +6,6 @@ import styles from './Form.module.css';
 import { v4 as uuidv4 } from 'uuid';
 import Botao from '../Botao';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { VideoContext } from '../Context/VideoContext';
 
 const Form = () => {
@@ -41,17 +40,13 @@ const Form = () => {
         const novoVideo = {
             id: uuidv4(),
             titulo,
-            categoriaId,
+            categoriaId: parseInt(categoriaId, 10),
             imagem,
             url,
             descricao
         };
         aoVideoCadastrado(novoVideo);
-        axios.post('http://localhost:5000/videos', novoVideo)
-            .then(() => {
-                navigate('/');
-            })
-            .catch(error => console.error('Erro ao adicionar vídeo:', error));
+        navigate('/');
 
         setTitulo('');
         setCategoriaId('');
