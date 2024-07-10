@@ -1,6 +1,7 @@
 import styles from './Cards.module.css';
 import { MdDeleteForever } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
+import { Link } from 'react-router-dom';
 
 
 const Cards = ({opcoes, aoDeletar}) => {
@@ -9,7 +10,9 @@ const Cards = ({opcoes, aoDeletar}) => {
             {opcoes.map((opcao) => (
                 <div className={styles.card} key={opcao.id}>
                     <div className={styles.videos__Card}>
-                        <img src={opcao.imagem} alt={opcao.titulo} />
+                        <Link to={`/${opcao.id}`}>
+                            <img src={opcao.imagem} alt={opcao.titulo} />
+                        </Link>
                     </div>
                     <div className={styles.botoes}>
                         <div className={styles.botao} onClick={() => aoDeletar(opcao.id)}>

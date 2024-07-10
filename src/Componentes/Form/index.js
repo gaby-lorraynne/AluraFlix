@@ -12,6 +12,7 @@ const Form = ({aoVideoCadastrado}) => {
     const [imagem, setImagem] = useState('');
     const [video, setVideo] = useState('');
     const [descricao, setDescricao] = useState('');
+    const [categoriaId, setCategoriaId] = useState('');
     const [categorias, setCategorias] = useState([]);
     
     

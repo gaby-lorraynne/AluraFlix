@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import styles from './Home.module.css';
 import Banner from "../../Componentes/BannerMain";
 import Cards from "../../Componentes/Cards";
 import BtnCategoria from "../../Componentes/BtnCategoria";
-import styles from './Home.module.css';
+
 
 const Home = () => {
     const [videos, setVideos] = useState([]);
@@ -42,10 +43,16 @@ const Home = () => {
         .catch((err) => console.log(err));
     }, []);
 
+    // Deletando o vídeo
     const DeletarVideo = (id) => {
         setVideos(videos.filter(video => video.id !== id));
         console.log("Foi clicado");
     };
+
+    // Cadastrando video
+    const aoVideoCadastrado = (novoVideo) => {
+        setVideos([...videos, novoVideo]);
+    }
 
     return (
         <>
