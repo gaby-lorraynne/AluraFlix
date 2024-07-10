@@ -9,11 +9,9 @@ const Cards = ({opcoes, aoDeletar}) => {
         <div className={styles.content}>
             {opcoes.map((opcao) => (
                 <div className={styles.card} key={opcao.id}>
-                    <div className={styles.videos__Card}>
                         <Link to={`/${opcao.id}`}>
-                            <img src={opcao.imagem} alt={opcao.titulo} />
+                            <img src={opcao.imagem} alt={opcao.titulo} className={styles.imagens}/>
                         </Link>
-                    </div>
                     <div className={styles.botoes}>
                         <div className={styles.botao} onClick={() => aoDeletar(opcao.id)}>
                             <MdDeleteForever size={40} />
