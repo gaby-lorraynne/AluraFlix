@@ -31,6 +31,7 @@ const Form = ({aoVideoCadastrado}) => {
         .catch((err) => console.log(err))
     }, [])
 
+
     
     const aoSalvar = (evento) => {
         evento.preventDefault();
@@ -68,6 +69,7 @@ const Form = ({aoVideoCadastrado}) => {
                     placeholder={'Selecione uma categoria'}
                     opcoes={categorias} 
                     required
+                    onChange={(e) => setCategoriaId(e.target.value)}
                 >
                     <option value="">Selecione uma categoria</option>
                     

@@ -3,6 +3,8 @@ import styles from './Home.module.css';
 import Banner from "../../Componentes/BannerMain";
 import Cards from "../../Componentes/Cards";
 import BtnCategoria from "../../Componentes/BtnCategoria";
+import axios from 'axios';
+
 
 
 const Home = () => {
@@ -45,14 +47,25 @@ const Home = () => {
 
     // Deletando o vídeo
     const DeletarVideo = (id) => {
-        setVideos(videos.filter(video => video.id !== id));
-        console.log("Foi clicado");
+        axios.delete(`http://localhost:5000/videos/${id}`)
+        .then(() => {
+          setVideos(videos.filter(video => video.id !== id));
+        })
+        .catch(error => console.error('Erro ao deletar vídeo:', error));
     };
 
     // Cadastrando video
     const aoVideoCadastrado = (novoVideo) => {
-        setVideos([...videos, novoVideo]);
-    }
+        axios.post('http://localhost:5000/videos', novoVideo)
+        .then(resp => {
+          setVideos([...videos, resp.dados]);
+        })
+        .catch(error => console.error('Erro ao adicionar vídeo:', error));
+    };
+
+    // const aoVideoCadastrado = (novoVideo) => {
+    //     setVideos([...videos, novoVideo]);
+    // }
 
     return (
         <>
@@ -65,7 +78,7 @@ const Home = () => {
                             opcoes={videos.filter(video => video.categoriaId === categoria.id)}
                             aoDeletar={DeletarVideo}
                         />
-                    </div>
+                    </div> 
                 </div>
             ))}
         </>
