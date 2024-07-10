@@ -31,25 +31,12 @@
       "descricao": "Back"
     },
     {
-      "id": "8d18cb99-11b9-45f6-aebe-c401b0c08e7e",
-      "titulo": "",
-      "categorias": [
-        {
-          "id": 0,
-          "categoria": "FRONT END"
-        },
-        {
-          "id": 1,
-          "categoria": "BACK END"
-        },
-        {
-          "id": 2,
-          "categoria": "MOBILE"
-        }
-      ],
-      "imagem": "",
-      "video": "",
-      "descricao": ""
+      "titulo": "Masha e o urso",
+      "categoriaId": 2,
+      "imagem": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYzA5TTejBXLegGa_gfX4QWxDK3AMIdyRtOg&",
+      "url": "https://www.youtube.com/embed/h0GX3hHSoqk",
+      "descricao": "indeio",
+      "id": 2
     }
   ]
 }

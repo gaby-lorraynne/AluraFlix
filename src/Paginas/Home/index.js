@@ -54,19 +54,7 @@ const Home = () => {
         .catch(error => console.error('Erro ao deletar vídeo:', error));
     };
 
-    // Cadastrando video
-    const aoVideoCadastrado = (novoVideo) => {
-        axios.post('http://localhost:5000/videos', novoVideo)
-        .then(resp => {
-          setVideos([...videos, resp.dados]);
-        })
-        .catch(error => console.error('Erro ao adicionar vídeo:', error));
-    };
-
-    // const aoVideoCadastrado = (novoVideo) => {
-    //     setVideos([...videos, novoVideo]);
-    // }
-
+ 
     return (
         <>
             <Banner />

@@ -3,12 +3,12 @@ import MainTitle from '../MainTitle';
 import styles from './Body.module.css';
 
 
-const BodyCadastro = ({ aoVideoCadastrado }) => {
+const BodyCadastro = () => {
     
     return(
         <div className={styles.content}>
             <MainTitle/>
-            <Form aoVideoCadastrado={aoVideoCadastrado}/>
+            <Form />
         </div>
     )
 }
