@@ -4,12 +4,14 @@ import Banner from "../../Componentes/BannerMain";
 import Cards from "../../Componentes/Cards";
 import BtnCategoria from "../../Componentes/BtnCategoria";
 import axios from 'axios';
+import ModalEdit from '../../Componentes/ModalEdit';
 
 
 
 const Home = () => {
     const [videos, setVideos] = useState([]);
     const [categorias, setCategorias] = useState([]);
+    const [videoEditado, setVideoEditado] = useState(null);
 
     const coresCategoria = {
         'FRONT END': '#6BD1FF',
@@ -65,10 +67,12 @@ const Home = () => {
                         <Cards
                             opcoes={videos.filter(video => video.categoriaId === categoria.id)}
                             aoDeletar={DeletarVideo}
+                            aoVideoEditado={video => setVideoEditado(video)}
                         />
                     </div> 
                 </div>
             ))}
+            <ModalEdit video={videoEditado}/>
         </>
     );
 }

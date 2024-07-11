@@ -4,11 +4,18 @@ import styles from './Body.module.css';
 
 
 const BodyCadastro = () => {
-    
-    return(
+
+    return (
         <div className={styles.content}>
-            <MainTitle/>
-            <Form />
+            <MainTitle />
+            <Form
+                title={'CRIAR CARD'}
+                style={{
+                    borderRadius: '2px',
+                    borderBottom: '3px solid white',
+                    borderTop: '3px solid white'
+                }}
+            />
         </div>
     )
 }

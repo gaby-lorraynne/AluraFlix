@@ -8,7 +8,7 @@ import Botao from '../Botao';
 import { useNavigate } from 'react-router-dom';
 import { VideoContext } from '../Context/VideoContext';
 
-const Form = () => {
+const Form = ({title, style}) => {
     const { aoVideoCadastrado } = useContext(VideoContext);
     const [titulo, setTitulo] = useState('');
     const [imagem, setImagem] = useState('');
@@ -59,7 +59,7 @@ const Form = () => {
 
     return(
         <div className={styles.card}>
-            <h2 className={styles.title}>Criar Card</h2>
+            <h2 className={styles.title} style={style}>{title}</h2>
             <form onSubmit={aoSalvar} className={styles.form}>
                 <FormInputs 
                     titulo={'Título'} 
