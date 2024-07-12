@@ -1,6 +1,8 @@
 .overlay {
     background-color: rgba(3, 18, 47, 0.76);
     position: fixed;
+    display: flex;
+    justify-content: center;
     top: 0;
     right: 0;
     bottom: 0;
@@ -9,7 +11,7 @@
     z-index: 999;
 }
 
-.formOverlay{
+.formOverlay {
     border: 5px solid var(--Blue);
     background-color: rgba(3, 18, 47, 1);
     border-radius: 10px;
@@ -17,7 +19,9 @@
     max-height: 90vh;
     overflow: auto;
     margin: 50px auto;
-    padding: 0 auto;
+    padding: 10px 0;
+    position: absolute;
+    display: flex;
 }
 
 .formOverlay::-webkit-scrollbar {
@@ -33,4 +37,14 @@
     background-color: #2271D1;
     border-radius: 10px;
     border: 2px solid rgba(3, 18, 47, 0.76);
+}
+
+.botaoClose {
+    margin: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }

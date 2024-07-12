@@ -72,7 +72,7 @@ const Home = () => {
                     </div> 
                 </div>
             ))}
-            <ModalEdit video={videoEditado}/>
+            <ModalEdit video={videoEditado} aoFechar={() => setVideoEditado(null)}/>
         </>
     );
 }
