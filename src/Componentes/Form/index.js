@@ -8,13 +8,13 @@ import Botao from '../Botao';
 import { useNavigate } from 'react-router-dom';
 import { VideoContext } from '../Context/VideoContext';
 
-const Form = ({title, style}) => {
+const Form = ({title, style, video, onEdit}) => {
     const { aoVideoCadastrado } = useContext(VideoContext);
-    const [titulo, setTitulo] = useState('');
-    const [imagem, setImagem] = useState('');
-    const [url, setUrl] = useState('');
-    const [descricao, setDescricao] = useState('');
-    const [categoriaId, setCategoriaId] = useState('');
+    const [titulo, setTitulo] = useState(video ? video.titulo : '');
+    const [imagem, setImagem] = useState(video ? video.imagem : '');
+    const [url, setUrl] = useState(video ? video.url : '');
+    const [descricao, setDescricao] = useState(video ? video.descricao : '');
+    const [categoriaId, setCategoriaId] = useState(video ? video.categoriaId : '');
     const [categorias, setCategorias] = useState([]);
     const navigate = useNavigate();
     
@@ -38,14 +38,21 @@ const Form = ({title, style}) => {
     const aoSalvar = (evento) => {
         evento.preventDefault();
         const novoVideo = {
-            id: uuidv4(),
+            id: video ? video.id : uuidv4(),
             titulo,
             categoriaId: parseInt(categoriaId, 10),
             imagem,
             url,
             descricao
         };
-        aoVideoCadastrado(novoVideo);
+        
+        if(video) {
+            onEdit(novoVideo);
+        }else{
+            aoVideoCadastrado(novoVideo);
+        }
+
+
         navigate('/');
 
         setTitulo('');

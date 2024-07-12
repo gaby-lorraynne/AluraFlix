@@ -56,6 +56,22 @@ const Home = () => {
         .catch(error => console.error('Erro ao deletar vídeo:', error));
     };
 
+    // Editando vídeo
+    const aoVideoEditado = (videoEditado) => {
+        axios.put(`http://localhost:5000/videos/${videoEditado.id}`, {
+            "titulo": videoEditado.titulo,
+            "categoriaId": videoEditado.categoriaId,
+            "imagem": videoEditado.imagem,
+            "url": videoEditado.url,
+            "descricao": videoEditado.descricao
+        })
+        .then(resp => {
+            setVideos(videos.map(video => video.id === videoEditado.id ? videoEditado : video));
+            setVideoEditado(null); 
+        })
+        .catch(error => console.error('Erro ao editar vídeo:', error));
+    };
+
  
     return (
         <>
@@ -65,14 +81,14 @@ const Home = () => {
                     <BtnCategoria nome={categoria.categoria} cor={coresCategoria[categoria.categoria]}/>
                     <div className={styles.cardsContainer}>
                         <Cards
-                            opcoes={videos.filter(video => video.categoriaId === categoria.id)}
+                            opcoes={videos.filter(video => video && video.categoriaId === categoria.id)}
                             aoDeletar={DeletarVideo}
                             aoVideoEditado={video => setVideoEditado(video)}
                         />
                     </div> 
                 </div>
             ))}
-            <ModalEdit video={videoEditado} aoFechar={() => setVideoEditado(null)}/>
+            <ModalEdit video={videoEditado} aoFechar={() => setVideoEditado(null)} aoVideoEditado={aoVideoEditado}/>
         </>
     );
 }

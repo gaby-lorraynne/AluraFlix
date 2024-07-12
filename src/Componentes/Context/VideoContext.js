@@ -20,7 +20,7 @@ const VideoProvider = ({ children }) => {
         .catch(error => console.error('Erro ao adicionar vídeo:', error));
     };
 
-    const DeletarVideo = (id) => {
+    const aoDeletarVideo = (id) => {
         axios.delete(`http://localhost:5000/videos/${id}`)
         .then(() => {
           setVideos(videos.filter(video => video.id !== id));
@@ -28,8 +28,11 @@ const VideoProvider = ({ children }) => {
         .catch(error => console.error('Erro ao deletar vídeo:', error));
     };
 
+    
+
+
     return (
-        <VideoContext.Provider value={{ videos, aoVideoCadastrado, DeletarVideo }}>
+        <VideoContext.Provider value={{ videos, aoVideoCadastrado, aoDeletarVideo }}>
             {children}
         </VideoContext.Provider>
     );
