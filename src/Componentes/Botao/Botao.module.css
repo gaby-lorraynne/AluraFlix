@@ -4,9 +4,10 @@
     font-weight: 700;
     font-size: 18px;
     padding: 20px;
-    border: 2px solid var(--WhiteSmoke);
+    border: 2px solid var(--BlueBorder);
     cursor: pointer;
-    color: #FFF;
     margin: 32px 0;
     height: 60px;
+    color: var(--BlueBorder);
+    box-shadow: inset 0px 0px 10px var(--BlueBorder);
 }

@@ -52,9 +52,10 @@ const Form = ({title, style, video, onEdit}) => {
             aoVideoCadastrado(novoVideo);
         }
 
-
+        // Volta para a Home
         navigate('/');
 
+        // Limpa os campos
         setTitulo('');
         setCategoriaId('');
         setImagem('');
