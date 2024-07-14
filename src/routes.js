@@ -4,6 +4,7 @@ import CriarVideo from './Paginas/CriarVideo';
 import NavBar from './Componentes/NavBar';
 import Player from "./Paginas/Player";
 import { VideoProvider } from "./Componentes/Context/VideoContext";
+import Rodape from "./Componentes/Rodape";
 
 function AppRoutes() {
   return (
@@ -16,6 +17,7 @@ function AppRoutes() {
         <Route path="/:id" element={<Player/>}></Route>
         <Route path="*" element={<div>Página não encontrada</div>}/>
       </Routes>
+      <Rodape/>
     </BrowserRouter>
     </VideoProvider>
   );

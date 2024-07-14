@@ -1,0 +1,17 @@
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 6.25rem;
+    background-color: var(--Black);
+    border-top: 4px solid var(--BlueBorder);
+    box-shadow: 0 0 20px var(--BlueBorder);
+}
+
+
+@media (max-width: 744px){
+    .footer {
+        height: 72px;
+    }
+}
