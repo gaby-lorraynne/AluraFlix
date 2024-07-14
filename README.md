@@ -18,4 +18,6 @@ You may also see any lint errors in the console.
 
 To run the application backend and show registered videos and manipulate them
 
+## Project image
+<img src="public/imagens/home.png" alt="Página inicial do projeto">
 
